@@ -1,0 +1,94 @@
+{
+  "majority_accuracy": 0.7345635202271115,
+  "logistic_regression_at_0.5": {
+    "threshold": 0.5,
+    "accuracy": 0.7473385379701917,
+    "precision": 0.5157342657342657,
+    "recall": 0.7887700534759359,
+    "f1": 0.6236786469344608,
+    "roc_auc": 0.8363700948099926,
+    "predicted_positive_rate": 0.40596167494677077,
+    "confusion_matrix": [
+      [
+        758,
+        277
+      ],
+      [
+        79,
+        295
+      ]
+    ]
+  },
+  "lightgbm_at_0.5": {
+    "threshold": 0.5,
+    "accuracy": 0.7572746628814763,
+    "precision": 0.5321285140562249,
+    "recall": 0.7085561497326203,
+    "f1": 0.6077981651376146,
+    "roc_auc": 0.8242230489033557,
+    "predicted_positive_rate": 0.3534421575585522,
+    "confusion_matrix": [
+      [
+        802,
+        233
+      ],
+      [
+        109,
+        265
+      ]
+    ]
+  },
+  "contact_rule": {
+    "k_valid": 141,
+    "threshold": 0.8633370141260566,
+    "top10_precision": 0.7304964539007093,
+    "validation_base_rate": 0.2654364797728886,
+    "lift_vs_random": 2.752057496112565
+  },
+  "lightgbm_at_contact_threshold": {
+    "threshold": 0.8633370141260566,
+    "accuracy": 0.7806955287437899,
+    "precision": 0.7304964539007093,
+    "recall": 0.27540106951871657,
+    "f1": 0.4,
+    "roc_auc": 0.8242230489033557,
+    "predicted_positive_rate": 0.10007097232079488,
+    "confusion_matrix": [
+      [
+        997,
+        38
+      ],
+      [
+        271,
+        103
+      ]
+    ]
+  },
+  "holdout": {
+    "n": 1409,
+    "contacted": 141,
+    "hit": 105,
+    "precision": 0.7446808510638298,
+    "recall": 0.2807486631016043,
+    "base_rate": 0.2654364797728886,
+    "lift_vs_random": 2.805495505745818,
+    "roc_auc": 0.8305187424113255
+  },
+  "odds_ratio_month_to_month_vs_two_year": {
+    "adjusted": 4.659365306811112,
+    "ci95": [
+      2.9513963074517635,
+      7.355733625979615
+    ],
+    "unadjusted": 25.57981418918919,
+    "adjusted_one_year_vs_two_year": 2.2184874878435994
+  },
+  "versions": {
+    "python_font": "Heiti TC",
+    "pandas": "3.1.0",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.1",
+    "lightgbm": "4.7.0",
+    "xgboost": "3.4.2"
+  }
+}

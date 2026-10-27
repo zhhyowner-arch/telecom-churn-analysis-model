@@ -1,0 +1,19 @@
+主模型：LightGBM
+文件：outputs/models/churn_lgbm.joblib（打分用这个，里面有类别水平和联系门槛）
+原生模型：outputs/models/churn_lgbm.txt
+positive 类：Churn = Yes
+random_state：42
+scale_pos_weight：2.7690（训练集未流失 / 流失）
+联系门槛：0.863337（在验证集上按最高 10% 锁定，留出集没有改）
+验证集前 10% 真实流失比例：73.0%，是随机的 2.75 倍
+留出集名单命中率：74.5%，召回 28.1%，是随机的 2.81 倍
+月付相对两年合同的调整后几率比：4.66（95% 区间 2.95–7.36）
+验证集 AUC：逻辑回归 0.836，LightGBM 0.824。名单用 LightGBM。
+
+画像和重要性：Contract、tenure、MonthlyCharges、InternetService、TechSupport、OnlineSecurity 都在 gain 前 8。
+TotalCharges 的 gain 排第 2，它和 tenure×MonthlyCharges 的相关系数是 1.000，不是另一根可以单独操作的杠杆。
+PaymentMethod 排第 12。电子支票的单变量流失率很高，但大部分已经被月付合同解释掉了。
+逻辑回归在控制合同、在网月数和月费之后，在线安全和技术支持的系数不再显著。单变量差距仍然大，是因为没开通的人集中在月付和光纤。运营按人群做动作，不把这个系数当成独立因果。
+
+打分时不要传入 Churn。Contract 用 contract_map 编成 0/1/2，其余类别列套用 categorical_levels。
+概率来自带类别权重的模型，适合排序和套用这个门槛，不宜直接当成未经校准的真实流失频率。

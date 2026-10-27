@@ -1,0 +1,10 @@
+# Python 3.11（与 data-analysis 环境一致）
+pandas==3.1.0
+numpy==2.4.6
+matplotlib==3.11.2
+seaborn==0.13.2
+scikit-learn==1.9.1
+lightgbm==4.7.0
+xgboost==3.4.2
+statsmodels==0.15.0
+joblib==1.6.0
